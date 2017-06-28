@@ -8,7 +8,7 @@
 #' The resulting vector is an ordered factor of the specified \code{type} (e.g. yearmonth)
 #' 
 #' @param dateVec A vector of date values
-#' @param type One of {"yearmonth", "yearquarter", "quarter", "month"}
+#' @param type One of {"year", "yearquarter", "yearmonth", "quarter", "month"}
 #' @param fullyears Should levels will always start and end at the end of a year? 
 #' For example \code{date_factor(as.Date(c("2016-4-1", "2016-7-1")), "yearquarter", fullyears=TRUE)} will return a factor with
 #' four levels (Q1, Q2, Q3, Q4) even though only two date values were given.
@@ -25,7 +25,10 @@
 
 date_factor <- function(dateVec, type="yearmonth", fullyears=TRUE){
   # return an ordered factor whose values correspond to dateVec
-  # type can be one of {"yearmonth", "yearquarter", "quarter", "month"}
+  # type can be one of {"year", "yearquarter", "yearmonth", "quarter", "month"}
+  
+  if(!type %in% c("year", "yearquarter", "yearmonth", "quarter", "month"))
+    stop('type must be one of {"year", "yearquarter", "yearmonth", "quarter", "month"}')
   
   minDate <- min(dateVec, na.rm=TRUE)
   maxDate <- max(dateVec, na.rm=TRUE)
@@ -34,8 +37,13 @@ date_factor <- function(dateVec, type="yearmonth", fullyears=TRUE){
     minDate <- as.Date(paste0(year(minDate), "-1-1"))
     maxDate <- as.Date(paste0(year(maxDate), "-12-1"))
   } else{
-    minDate <- as.Date(paste0(year(minDate), "-", month(minDate), "-1"))
-    maxDate <- as.Date(paste0(year(maxDate), "-", month(maxDate), "-1"))
+    if(type == "yearquarter"){
+      minDate <- as.Date(paste0(year(minDate), "-", floor(month(minDate)/3)*3L + 1L, "-1"))
+      maxDate <- as.Date(paste0(year(maxDate), "-", floor(month(maxDate)/3)*3L + 1L, "-1"))
+    } else{
+      minDate <- as.Date(paste0(year(minDate), "-", month(minDate), "-1"))
+      maxDate <- as.Date(paste0(year(maxDate), "-", month(maxDate), "-1"))
+    }
   }
   
   if(type == "yearmonth"){
