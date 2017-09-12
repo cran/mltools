@@ -1,6 +1,12 @@
 # News
 
-## mltools 0.3.9000
+## mltools 0.3.3.9000
+
+## mltools 0.3.3
+
+- In `date_factor(dateVec, ...)` fixed bug in "character string is not in a standard unambiguous format" produced by some date values
+
+## mltools 0.3.2
 
 - In `folds(x, ...)` `x` can now be a positive integer specifying the number of fold IDs to generate
 - In `date_factor(dateVec, ...)` the argument `fullyears` has been dropped and replaced by the more flexible pair of arguments `minDate` and `maxDate` for determining resulting vector levels.  Additionally a bug regarding `type=yearquarters` has been fixed.

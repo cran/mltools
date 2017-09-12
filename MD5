@@ -1,11 +1,11 @@
-049078e8da84bd256839bc0bdc8d41a8 *DESCRIPTION
+14eee341ed4e5679f29ea898c3e3a923 *DESCRIPTION
 dcd23b7fb5b772d6dc4d36af65be14b9 *LICENSE
 7b7bf8cfc59c3dabfa1f442c91d45097 *NAMESPACE
-76df0b6797d050681dbb347ba1648801 *NEWS.md
+5a4c66148f4d72b9bb38b837645048cd *NEWS.md
 6e894f60d7c5203d47db45b860eaae88 *R/auc_roc.R
 594df5d59672df21cf35d0eb5ea5dac3 *R/bin_data.R
 2d9a2778ac88011d0e21064e32b233d8 *R/data.R
-b422c87dabecfe5e4dc8029f50bb8724 *R/date_factor.R
+c0b5b20a8b40b1826c2b4d2c445ee93f *R/date_factor.R
 064967419d54a17c78590c81d0e394ee *R/empirical_cdf.R
 16cbc7c35e547d77afe8156e7f03dec6 *R/explore_dataset.R
 deff965de5cbe76295f678b226d0388a *R/exponential_weight.R
