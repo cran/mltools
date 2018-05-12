@@ -4,19 +4,21 @@
 \alias{mse}
 \title{Mean Square Error}
 \usage{
-mse(preds = NULL, actuals = NULL, na.rm = FALSE, weights = 1)
+mse(preds = NULL, actuals = NULL, weights = 1, na.rm = FALSE)
 }
 \arguments{
 \item{preds}{A vector of prediction values in [0, 1]}
 
 \item{actuals}{A vector of actuals values in {0, 1}, or {FALSE, TRUE}}
 
-\item{na.rm}{Should (prediction, actual) pairs with at least one NA value be ignored?}
-
 \item{weights}{Optional vectors of weights}
+
+\item{na.rm}{Should (prediction, actual) pairs with at least one NA value be ignored?}
 }
 \description{
 Calculate Mean-Square Error (Deviation)
+
+For the ith sample, Squared Error is calculated as SE = (prediction - actual)^2. MSE is then mean(squared errors).
 }
 \details{
 Calculate Mean-Square Error (Deviation)

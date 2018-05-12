@@ -4,19 +4,23 @@
 \alias{rmsle}
 \title{Root Mean Square Logarithmic Error}
 \usage{
-rmsle(preds = NULL, actuals = NULL, na.rm = FALSE, weights = 1)
+rmsle(preds = NULL, actuals = NULL, weights = 1, na.rm = FALSE)
 }
 \arguments{
 \item{preds}{A vector of prediction values in [0, 1]}
 
 \item{actuals}{A vector of actuals values in {0, 1}, or {FALSE, TRUE}}
 
-\item{na.rm}{Should (prediction, actual) pairs with at least one NA value be ignored?}
-
 \item{weights}{Optional vectors of weights}
+
+\item{na.rm}{Should (prediction, actual) pairs with at least one NA value be ignored?}
 }
 \description{
 Calculate Root-Mean-Square-Logarithmic Error (Deviation)
+
+For the ith sample, Squared Logarithmic Error is calculated as SLE = (log(prediction + 1) - log(actual + 1))^2. 
+RMSLE is then sqrt(mean(squared logarithmic errors)). Note the '+1' in the calculation of SLE which avoids taking the logarithm of 0
+for data which may include 0s.
 }
 \details{
 Calculate Root-Mean-Square-Logarithmic Error (Deviation)
